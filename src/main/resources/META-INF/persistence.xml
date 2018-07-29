@@ -9,6 +9,7 @@
             <!-- Properties for Hibernate -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="false"/>
+
         </properties>
     </persistence-unit>
 
@@ -16,6 +17,14 @@
     <!-- auto-generated
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        - from PPS -
+        <property name="hibernate.cache.use_second_level_cache" value="true"/>
+        <property name="hibernate.cache.use_query_cache" value="true"/>
+        <property name="hibernate.generate_statistics" value="false"/>
+        <property name="hibernate.cache.infinispan.statistics" value="false"/>
+        <property name="hibernate.implicit_naming_strategy" value="legacy-jpa"/>
+
         <properties>
             <property name="hibernate.connection.url" value=""/>
             <property name="hibernate.connection.driver_class" value=""/>
