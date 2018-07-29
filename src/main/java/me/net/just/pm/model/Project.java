@@ -3,6 +3,7 @@ package me.net.just.pm.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +39,8 @@ public class Project implements Serializable {
     @Column( unique = true )
     private String name;
 
-    @OneToMany( mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true )
+    //@OneToMany( mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true )
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "parent", cascade = CascadeType.ALL)
     private List<ProjectItem> items = new LinkedList<ProjectItem>();
 
 
