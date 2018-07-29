@@ -27,6 +27,7 @@
 /jboss/wildfly-Final/standalone/data/
 /jboss/wildfly-Final/standalone/configuration/standalone_xml_history
 /jboss/wildfly-Final/standalone/log
+/jboss/wildfly-Final/standalone/tmp
 
 # Gradle:
 .idea/gradle.xml
