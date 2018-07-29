@@ -14,9 +14,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @author Michael Kulla (mkulla@gmx.de)
- */
+
 @Named
 @SessionScoped
 public class ProjectPM implements Serializable {
@@ -27,6 +25,7 @@ public class ProjectPM implements Serializable {
     private Project currentProject;
     private String projectName;
     private String renamedName;
+
     @EJB
     private ProjectService service;
 
