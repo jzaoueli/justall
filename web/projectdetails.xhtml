@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:panelGroup rendered="#{projectPM.currentProject == null}">
+            <h2>keine Projekte vorhanden</h2>
+            <h3>Fügen Sie ein neues Projekt hinzu.</h3>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{projectPM.currentProject != null}">
+            <h:form>
+                <h1>#{projectPM.currentProject.name}</h1>
+                <h:commandButton value="Projekt umbenennen" action="renameproject" immediate="true" />
+                <h:commandButton value="Projekt löschen" action="removeproject" immediate="true" />
+                <hr/>
+                <h3>Eintrag hinzufügen</h3>
+                <h:panelGrid columns="3" columnClasses="fixed-column">
+                    Beschreibung <h:inputText value="#{projectPM.description}"
+                                              id="description" required="true"
+                                              requiredMessage="Bitte hier die Beschreibung eingeben."/>
+                    <h:message for="description" styleClass="error"/>
+                    Priorität <h:selectOneMenu value="#{projectPM.priority}" >
+                        <f:selectItems value="#{projectPM.priorities}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton value="Hinzufügen" action="#{projectPM.add}"/>
+
+                <hr/>
+
+                <h2>#{projectPM.headLine}</h2>
+                <h:dataTable value="#{projectPM.currentProject.all}" var="item" rendered="#{not empty projectPM.currentProject.all}"
+                             styleClass="itemlist"
+                             headerClass="itemlist-header"
+                             rowClasses="itemlist-oddrow,itemlist-evenrow">
+                    <h:column>
+                        <f:facet name="header">Beschreibung</f:facet>
+                        #{item.description}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Priorität</f:facet>
+                        #{item.priority}
+                    </h:column>
+                    <h:column>
+                        <h:commandLink value="Bearbeiten" action="#{projectPM.edit(item)}" immediate="true"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink value="Löschen" action="#{projectPM.remove(item)}" immediate="true"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </h:panelGroup>
+    </h:body>
+</html>
+

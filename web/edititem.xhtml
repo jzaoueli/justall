@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="master.xhtml">
+
+           <ui:define name="content">
+                <h1>Bearbeiten eines Eintrags</h1>
+                <h:form>
+                    <h:panelGrid columns="3" columnClasses="fixed-column">
+                        Beschreibung <h:inputText value="#{projectPM.currentItem.description}"
+                                                  id="description" required="true"
+                                                  requiredMessage="hier Beschreibung eingeben"/>
+                        <h:message styleClass="error" for="description"/>
+                        Priorität <h:selectOneMenu value="#{projectPM.currentItem.priority}">
+                            <f:selectItems value="#{projectPM.priorities}"/>
+                        </h:selectOneMenu>
+                    </h:panelGrid>
+                    <h:commandButton value="Zurück" action="main" immediate="true"/>
+                    <h:commandButton value="Übernehmen" action="#{projectPM.commitEdit}"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:panelGroup>
+            <h1>Projekte</h1>
+            <h:form id="projectForm">
+                <h:message for="projectName" styleClass="error"/>
+                <h:inputText value="#{projectPM.projectName}" id="projectName"
+                             required="true"
+                             requiredMessage="Bitte Name des Projekts angeben."/>
+                <h:commandButton value="Hinzufügen" action="#{projectPM.addProject}"/>
+                <hr/>
+                <h:dataTable value="#{projectPM.projects}" var="project">
+                    <h:column>
+                        <h:commandLink value="${project.name}"
+                                       action="#{projectPM.show(project)}"
+                                       rendered="#{project != projectPM.currentProject}"
+                                       immediate="true" />
+                        <h:outputText value="${project.name}"
+                                      rendered="#{project == projectPM.currentProject}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </h:panelGroup>
+    </h:body>
+</html>
+
