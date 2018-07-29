@@ -3,7 +3,7 @@
 
     <persistence-unit name="unitjustall">
 
-        <jta-data-source>java:jboss/datasources/justall</jta-data-source>
+        <jta-data-source>java:jboss/datasources/topm</jta-data-source>
 
         <properties>
             <!-- Properties for Hibernate -->
