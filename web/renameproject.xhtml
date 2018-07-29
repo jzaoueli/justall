@@ -4,25 +4,25 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
 
-    <body>
+<body>
 
-        <ui:composition template="master.xhtml">
+<ui:composition template="master.xhtml">
 
-            <ui:define name="content">
-                <h:form id="renameForm">
-                    <h2>Projekt "#{projectPM.currentProject.name}" umbenennen</h2>
-                    <h:inputText id="projectName" value="#{projectPM.renamedName}"
-                                 required="true"
-                                 requiredMessage="Bitte neuen Projektnamen eingeben"/>
-                    <br/>
-                    <h:message for="projectName" styleClass="error"/><br/>
-                    <h:commandButton value="Zurück" action="main" immediate="true" />
-                    <h:commandButton value="Speichern" action="#{projectPM.renameProject}" />
-                </h:form>
-            </ui:define>
+    <ui:define name="content">
+        <h:form id="renameForm">
+            <h2>Projekt "#{projectPM.currentProject.name}" umbenennen</h2>
+            <h:inputText id="projectName" value="#{projectPM.renamedName}"
+                         required="true"
+                         requiredMessage="Bitte neuen Projektnamen eingeben"/>
+            <br/>
+            <h:message for="projectName" styleClass="error"/><br/>
+            <h:commandButton value="Zurück" action="main" immediate="true"/>
+            <h:commandButton value="Speichern" action="#{projectPM.renameProject}"/>
+        </h:form>
+    </ui:define>
 
-        </ui:composition>
+</ui:composition>
 
-    </body>
+</body>
 </html>
 

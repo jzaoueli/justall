@@ -27,16 +27,15 @@ public class ProjectPM implements Serializable {
     private String renamedName;
 
     @EJB
-    private ProjectService service;
+    private ProjectService projectService;
 
     @PostConstruct
     private void init() {
-        currentProject = service.getFirst();
+        currentProject = projectService.getFirst();
     }
 
     public void add() {
-        Project updatedProject = service.addProjectItem( currentProject, description, priority );
-        currentProject = updatedProject;
+        currentProject = projectService.addProjectItem( currentProject, description, priority );
 
         // reset values
         description = "";
@@ -44,8 +43,7 @@ public class ProjectPM implements Serializable {
     }
 
     public void remove( ProjectItem item ) {
-        Project updatedProject = service.removeProjectItem( currentProject, item );
-        currentProject = updatedProject;
+        currentProject = projectService.removeProjectItem( currentProject, item );
     }
 
     public String edit( ProjectItem item ) {
@@ -54,7 +52,7 @@ public class ProjectPM implements Serializable {
     }
 
     public String commitEdit() {
-        service.update( currentProject );
+        projectService.update( currentProject );
         return "main";
     }
 
@@ -62,8 +60,8 @@ public class ProjectPM implements Serializable {
         if ( !contains( projectName ) ) {
             Project project = new Project();
             project.setName( projectName );
-            project.setPosition( service.getHighestProjectPosition() + 1 );
-            service.create( project );
+            project.setPosition( projectService.getHighestProjectPosition() + 1 );
+            projectService.create( project );
             currentProject = project;
             projectName = "";
         } else {
@@ -72,15 +70,20 @@ public class ProjectPM implements Serializable {
     }
 
     public String removeProject() {
-        service.remove( currentProject );
-        currentProject = service.getFirst();
+        projectService.remove( currentProject );
+        currentProject = projectService.getFirst();
         return "main";
+    }
+
+    public void removeAllProjectItems() {
+        currentProject.clear();
+        projectService.update( currentProject );
     }
 
     public String renameProject() {
         if ( !contains( renamedName ) ) {
             currentProject.setName( renamedName );
-            service.update( currentProject );
+            projectService.update( currentProject );
             return "main";
         } else {
             FacesContext.getCurrentInstance().addMessage( "renameForm:projectName", new FacesMessage( "Name bereits vorhanden" ) );
@@ -90,12 +93,12 @@ public class ProjectPM implements Serializable {
     }
 
     public void show( Project project ) {
-        this.currentProject = service.find( project.getId() );
+        this.currentProject = projectService.find( project.getId() );
     }
 
     private boolean contains( String projectName ) {
         try {
-            service.findByName( projectName );
+            projectService.findByName( projectName );
             return true;
         } catch ( NoSuchProjectException ex ) {
             return false;
@@ -132,7 +135,7 @@ public class ProjectPM implements Serializable {
     }
 
     public List<Project> getProjects() {
-        return service.findAll();
+        return projectService.findAll();
     }
 
     public String getProjectName() {
@@ -147,7 +150,7 @@ public class ProjectPM implements Serializable {
         if ( currentProject != null && !currentProject.isEmpty() ) {
             return "Bisher in der Projektliste:";
         } else {
-            return "Bisher noch keine Eintr�ge";
+            return "Bisher noch keine Eintrag";
         }
     }
 

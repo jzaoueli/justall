@@ -4,20 +4,20 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
 
-    <body>
+<body>
 
-        <ui:composition template="master.xhtml">
+<ui:composition template="master.xhtml">
 
-            <ui:define name="content">
-                <h:form>
-                    <h2>Sicher, daß das Projekt "#{projectPM.currentProject.name}" gelöscht werden soll?</h2>
-                    <h:commandButton value="Zurück" action="main" />
-                    <h:commandButton value="Ja, sicher" action="#{projectPM.removeProject}" />
-                </h:form>
+    <ui:define name="content">
+        <h:form>
+            <h2>Sicher, daß das Projekt "#{projectPM.currentProject.name}" gelöscht werden soll?</h2>
+            <h:commandButton value="Zurück" action="main"/>
+            <h:commandButton value="Ja, sicher" action="#{projectPM.removeProject}"/>
+        </h:form>
 
-            </ui:define>
+    </ui:define>
 
-        </ui:composition>
+</ui:composition>
 
-    </body>
+</body>
 </html>

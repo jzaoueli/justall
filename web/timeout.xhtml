@@ -4,20 +4,20 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
 
-    <body>
-        <ui:composition template="master.xhtml">
+<body>
+<ui:composition template="master.xhtml">
 
-            <ui:define name="left"/>
-            <ui:define name="content">
-                <h:form>
-                    <h2>Die Sitzung ist abgelaufen.</h2>
-                    Bitte klicken Sie
-                    <h:commandLink value="hier" action="main"/>
-                    , um auf die Startseite weitergeleitet zu werden.
-                </h:form>
-            </ui:define>
+    <ui:define name="left"/>
+    <ui:define name="content">
+        <h:form>
+            <h2>Die Sitzung ist abgelaufen.</h2>
+            Bitte klicken Sie
+            <h:commandLink value="hier" action="main"/>
+            , um auf die Startseite weitergeleitet zu werden.
+        </h:form>
+    </ui:define>
 
-        </ui:composition>
+</ui:composition>
 
-    </body>
+</body>
 </html>

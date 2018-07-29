@@ -62,7 +62,7 @@ public class ProjectService {
     }
 
     public long count() {
-        return ( (Long) entityManager.createQuery( "select count(p) from Project p" ).getSingleResult() ).longValue();
+        return (Long) entityManager.createQuery( "select count(p) from Project p" ).getSingleResult();
     }
 
     public int getHighestProjectPosition() {

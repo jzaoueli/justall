@@ -4,26 +4,26 @@
 }
 
 .itemlist {
-	border-collapse:collapse;
+    border-collapse: collapse;
 }
 
 .itemlist-header {
-	text-align:center;
-	background:none repeat scroll 0 0 #E5E5E5;
-	border-bottom:1px solid #BBBBBB;
-	padding:16px 64px;
+    text-align: center;
+    background: none repeat scroll 0 0 #E5E5E5;
+    border-bottom: 1px solid #BBBBBB;
+    padding: 16px 64px;
 }
 
 .itemlist-oddrow {
-	text-align:center;
-	background:none repeat scroll 0 0 #FFFFFF;
-	border-top:1px solid #BBBBBB;
+    text-align: center;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #BBBBBB;
 }
 
 .itemlist-evenrow {
-	text-align:center;
-	background:none repeat scroll 0 0 #F9F9F9;
-	border-top:1px solid #BBBBBB;
+    text-align: center;
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-top: 1px solid #BBBBBB;
 }
 
 .left-colum {
@@ -39,4 +39,9 @@
 
 .error {
     color: red;
+}
+
+.appcontent {
+    background: #036fab;
+    background-color: #ff4444;
 }
