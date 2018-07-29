@@ -23,6 +23,9 @@
 
     <dependencies>
 
+        <!--  -->
+        <!--  -->
+
 
         <!-- Servlet -->
         <dependency>
@@ -46,11 +49,42 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- JSF -->
+        <!-- CDI -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+
+        <!-- JSF-->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.2_spec</artifactId>
             <version>2.2.13</version>
+        </dependency>
+
+        <!-- HINT: jsf??
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>2.2.13.SP1</version>
+        </dependency>
+        -->
+
+        <!-- primefaces -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>6.1</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.1</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Injection
@@ -60,16 +94,6 @@
             <version>1</version>
         </dependency>
          -->
-
-        <!-- CDI -->
-        <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-        <!--  -->
-
 
     </dependencies>
 
