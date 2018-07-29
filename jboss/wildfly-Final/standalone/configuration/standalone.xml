@@ -153,10 +153,10 @@
                         localhost
                     </xa-datasource-property>
                     <xa-datasource-property name="DatabaseName">
-                        pm
+                        pmdb
                     </xa-datasource-property>
                     <xa-datasource-property name="PortNumber">
-                        5051
+                        5050
                     </xa-datasource-property>
                     <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     <driver>org.postgresql</driver>
