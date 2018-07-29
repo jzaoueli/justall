@@ -53,7 +53,20 @@
             <version>2.2.13</version>
         </dependency>
 
-        <!--  -->
+        <!-- Injection
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+         -->
+
+        <!-- CDI -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>1.2</version>
+        </dependency>
 
         <!--  -->
 
