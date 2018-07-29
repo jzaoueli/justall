@@ -80,6 +80,7 @@
             </h:dataTable>
 
             <h:commandButton value="clear List"
+                             rendered="#{not empty projectPM.currentProject.all}"
                              action="#{projectPM.removeAllProjectItems}"
                              immediate="true"/>
 
