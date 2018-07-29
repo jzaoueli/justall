@@ -19,7 +19,7 @@ public class ProjectItem implements Serializable {
     private Long id;
 
     @ManyToOne( optional = false )
-    private Project parent;
+    private Project project;
 
     public ProjectItem() {
     }
@@ -45,12 +45,12 @@ public class ProjectItem implements Serializable {
         this.priority = priority;
     }
 
-    public Project getParent() {
-        return parent;
+    public Project getProject() {
+        return project;
     }
 
-    public void setParent( Project parent ) {
-        this.parent = parent;
+    public void setProject( Project project ) {
+        this.project = project;
     }
 
     @Override
@@ -75,10 +75,7 @@ public class ProjectItem implements Serializable {
             return false;
         }
         final ProjectItem other = (ProjectItem) object;
-        if ( this.id != other.id && ( this.id == null || !this.id.equals( other.id ) ) ) {
-            return false;
-        }
-        return true;
+        return this.id == other.id || ( this.id != null && this.id.equals( other.id ) );
     }
 
     @Override

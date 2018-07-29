@@ -39,13 +39,12 @@ public class Project implements Serializable {
     @Column( unique = true )
     private String name;
 
-    //@OneToMany( mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true )
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "parent", cascade = CascadeType.ALL)
-    private List<ProjectItem> items = new LinkedList<ProjectItem>();
+    @OneToMany( fetch = FetchType.EAGER, mappedBy = "project", orphanRemoval = true, cascade = CascadeType.ALL )
+    private List<ProjectItem> items = new LinkedList<>();
 
 
     public void add( ProjectItem item ) {
-        item.setParent( this );
+        item.setProject( this );
         items.add( item );
     }
 
@@ -109,10 +108,7 @@ public class Project implements Serializable {
         if ( this.id != other.id && ( this.id == null || !this.id.equals( other.id ) ) ) {
             return false;
         }
-        if ( ( this.name == null ) ? ( other.name != null ) : !this.name.equals( other.name ) ) {
-            return false;
-        }
-        return true;
+        return ( this.name == null ) ? ( other.name == null ) : this.name.equals( other.name );
     }
 
     @Override
