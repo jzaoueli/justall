@@ -17,6 +17,16 @@
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 
+# Server dir
+/jboss/wildfly-Final/appclient/
+/jboss/wildfly-Final/bin/
+/jboss/wildfly-Final/docs/
+/jboss/wildfly-Final/domain/
+/jboss/wildfly-Final/modules/
+/jboss/wildfly-Final/welcome-content/
+/jboss/wildfly-Final/standalone/data/
+/jboss/wildfly-Final/standalone/configuration/standalone_xml_history
+/jboss/wildfly-Final/standalone/log
 
 # Gradle:
 .idea/gradle.xml
