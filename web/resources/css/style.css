@@ -1,0 +1,42 @@
+.fixed-column {
+    width: 180px;
+    display: inline-block;
+}
+
+.itemlist {
+	border-collapse:collapse;
+}
+
+.itemlist-header {
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px 64px;
+}
+
+.itemlist-oddrow {
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.itemlist-evenrow {
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}
+
+.left-colum {
+    width: 150px;
+    vertical-align: top;
+}
+
+.main-column {
+    background: #F3F3F3;
+    width: 650px;
+    vertical-align: top;
+}
+
+.error {
+    color: red;
+}
